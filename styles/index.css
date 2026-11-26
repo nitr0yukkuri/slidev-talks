@@ -1,0 +1,196 @@
+/* Atmospheric editorial layouts. All selectors are scoped to these slides. */
+.slidev-layout.atmos {
+  --surface: #101923;
+  --ink: #f0f2ef;
+  --muted: #bac5cb;
+  --accent: #9dbfbe;
+  --glow: #355b67;
+  --line: #b7d8d3;
+  --rule: rgba(201, 218, 221, .19);
+  --serif: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif CJK JP", "Noto Serif JP", Georgia, serif;
+  --sans: "Inter", "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans CJK JP", system-ui, sans-serif;
+  --mono: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 47px 76px 53px;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 20px;
+  line-height: 1.65;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.slidev-layout.atmos[data-role="content"] {
+  --surface: #f1f0eb;
+  --ink: #202e33;
+  --muted: #495c60;
+  --accent: #426c70;
+  --glow: #c5d8d1;
+  --line: #507b7a;
+  --rule: rgba(43, 78, 80, .2);
+}
+.slidev-layout.atmos[data-role="section"] {
+  --surface: #14231f;
+  --glow: #466b59;
+  --accent: #b4ceb3;
+  --line: #b8d0b5;
+}
+.slidev-layout.atmos[data-role="quote"] {
+  --surface: #21212c;
+  --glow: #66566c;
+  --accent: #cfbdcf;
+  --line: #cfbdcf;
+}
+.slidev-layout.atmos[data-role="closing"] {
+  --surface: #211f20;
+  --glow: #78604b;
+  --accent: #d5bf9e;
+  --line: #d5bf9e;
+}
+.slidev-layout.atmos[data-role="code"] {
+  --surface: #111923;
+  --glow: #253c49;
+  --accent: #a6c2cc;
+}
+.atmos .atmos-art {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 100% 95%, var(--glow), transparent 61%);
+}
+.atmos .atmos-art::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--surface) 9%, transparent 80%);
+}
+.atmos .atmos-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 84% 11%, var(--accent), transparent 43%);
+  opacity: .09;
+}
+.atmos .atmos-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--line);
+  opacity: .22;
+  mask-image: linear-gradient(90deg, transparent 47%, #000 86%);
+}
+.atmos[data-role="content"] .atmos-art { opacity: .33; }
+.atmos[data-role="content"] .atmos-lines,
+.atmos[data-role="code"] .atmos-lines { opacity: .10; }
+.atmos[data-role="quote"] .atmos-lines { transform: rotate(180deg); opacity: .13; }
+.atmos[data-role="closing"] .atmos-lines { opacity: .16; }
+.atmos .atmos-kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  margin-bottom: 30px;
+}
+.atmos .atmos-kicker > span {
+  display: block;
+  width: 27px;
+  height: 1px;
+  background: currentColor;
+}
+.atmos .atmos-body { position: relative; min-height: 0; flex: 1; width: 100%; }
+.atmos[data-role="cover"] .atmos-body,
+.atmos[data-role="section"] .atmos-body,
+.atmos[data-role="quote"] .atmos-body,
+.atmos[data-role="closing"] .atmos-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 24px;
+}
+.atmos[data-role="cover"] .atmos-body,
+.atmos[data-role="section"] .atmos-body,
+.atmos[data-role="closing"] .atmos-body { max-width: 83%; }
+.atmos[data-role="quote"] .atmos-body {
+  text-align: center;
+  align-items: center;
+  max-width: 90%;
+  margin-inline: auto;
+}
+.atmos .atmos-footer {
+  position: absolute;
+  inset: auto 76px 23px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .18em;
+  line-height: 1;
+}
+.atmos .atmos-footer-line { flex: 1; height: 1px; background: var(--rule); }
+.slidev-layout.atmos h1 {
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1.23;
+  letter-spacing: -.035em;
+  margin: 0 0 24px;
+  padding: 0;
+  border: 0;
+  background: none;
+  -webkit-text-fill-color: currentColor;
+}
+.slidev-layout.atmos[data-role="cover"] h1,
+.slidev-layout.atmos[data-role="section"] h1,
+.slidev-layout.atmos[data-role="closing"] h1,
+.slidev-layout.atmos[data-role="quote"] h1 {
+  font-family: var(--serif);
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 1.22;
+  letter-spacing: -.045em;
+  text-wrap: balance;
+  margin-bottom: 22px;
+}
+.slidev-layout.atmos[data-role="quote"] h1 { font-size: 47px; line-height: 1.42; }
+.slidev-layout.atmos[data-role="section"] h1 { font-size: 59px; }
+.slidev-layout.atmos[data-role="closing"] h1 { font-size: 70px; }
+.slidev-layout.atmos h2 { color: var(--ink); font-size: 25px; line-height: 1.35; font-weight: 600; margin: 18px 0 12px; }
+.slidev-layout.atmos p { color: var(--muted); font-size: 20px; line-height: 1.65; margin: 0 0 14px; }
+.slidev-layout.atmos h1 + p { color: var(--muted); opacity: 1; margin-top: 0; }
+.slidev-layout.atmos strong { color: var(--ink); font-weight: 650; }
+.slidev-layout.atmos a { color: var(--accent); border-color: currentColor; }
+.slidev-layout.atmos ul, .slidev-layout.atmos ol { margin: 12px 0 18px; padding-left: 1.3em; }
+.slidev-layout.atmos li { margin: 7px 0; padding-left: .18em; }
+.slidev-layout.atmos li::marker { color: var(--accent); }
+.slidev-layout.atmos blockquote { background: transparent; border-left: 2px solid var(--accent); padding-left: 18px; color: var(--muted); }
+.slidev-layout.atmos .slidev-code {
+  border: 1px solid var(--rule);
+  border-radius: 7px;
+  box-shadow: none;
+  font-size: 15px;
+}
+.slidev-layout.atmos code { font-family: var(--mono); }
+.slidev-layout.atmos table { width: 100%; border-collapse: collapse; font-size: 17px; }
+.slidev-layout.atmos th, .slidev-layout.atmos td { padding: 12px 8px; border-bottom: 1px solid var(--rule); text-align: left; }
+.slidev-layout.atmos th { color: var(--accent); font-weight: 600; }
+.atmos .atmos-caption { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) {
+  .slidev-layout.atmos .atmos-art, .slidev-layout.atmos .atmos-art * { animation: none !important; transition: none !important; }
+}

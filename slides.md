@@ -1,56 +1,120 @@
 ---
 theme: default
-title: Slidev Starter
+title: Field Notes
 author: WAKATO
 aspectRatio: 16/9
-transition: slide-left
-layout: cover
+canvasWidth: 980
+colorSchema: dark
+transition: fade
+fonts:
+  provider: none
+defaults:
+  layout: atmos-content
+layout: atmos-cover
+kicker: ENGINEERING / FIELD NOTES
 ---
 
-# Slidev Starter
+# Beyond the<br>Architecture.
 
-Markdown × Vue で作る技術登壇資料
+複雑さの先にある、設計の本質。
 
-WAKATO
+<span class="atmos-caption">WAKATO &nbsp; / &nbsp; @0ts_st</span>
 
 ---
+layout: atmos-content
+kicker: 01 / CONTEXT
+---
 
-# Markdown
+# 設計は、何のためにあるのか。
 
-- Markdown でスライドを書く
-- Vue コンポーネントを埋め込む
-- コードや図を表示する
+複雑さをなくすのではなく、変化に耐えられる形へ整える。
+
+- 変更の影響範囲を小さくする
+- 責務と依存の方向を明確にする
+- チームが理解できる構造を保つ
 
 <v-click>
 
-この文章はクリックで表示されます。
+**選択の理由を、コードに残す。**
 
 </v-click>
 
 ---
+layout: atmos-section
+kicker: 02 / STRUCTURE
+---
 
-# Live Demo
+# 境界を、<br>デザインする。
 
-Vue コンポーネントをスライド上で操作できます。
+Structure follows intention.
+
+---
+layout: atmos-content
+kicker: 02 / STRUCTURE
+---
+
+# 依存の方向を制御する。
+
+<div class="grid grid-cols-2 gap-12 items-center">
+
+<div>
+
+ビジネスロジックを<br>外部技術の変更から守る。
 
 <Counter />
 
+</div>
+
+<svg viewBox="0 0 360 270" role="img" aria-label="同心円によるレイヤー構造の模式図" class="w-full">
+  <circle cx="180" cy="135" r="112" fill="#d9e2de" stroke="#6f8c88"/>
+  <circle cx="180" cy="135" r="79" fill="#e4eae5" stroke="#6f8c88"/>
+  <circle cx="180" cy="135" r="43" fill="#f1f0eb" stroke="#507773"/>
+  <g fill="#334b4e" font-size="11" text-anchor="middle" font-family="sans-serif">
+    <text x="180" y="49">INFRASTRUCTURE</text>
+    <text x="180" y="74">USE CASE</text>
+    <text x="180" y="139">DOMAIN</text>
+  </g>
+</svg>
+
+</div>
+
+---
+layout: atmos-code
+kicker: 03 / IMPLEMENTATION
 ---
 
-# Code
+# 小さなインターフェースから始める。
 
 ```go
-package main
+type Repository interface {
+    Find(ctx context.Context, id string) (User, error)
+}
 
-import "fmt"
+type Service struct {
+    repo Repository
+}
 
-func main() {
-    fmt.Println("Hello, Slidev!")
+func (s *Service) Get(ctx context.Context, id string) (User, error) {
+    return s.repo.Find(ctx, id)
 }
 ```
 
+依存の方向を、型で表現する。
+
 ---
-layout: center
+layout: atmos-quote
+kicker: 04 / REFLECTION
 ---
 
-# Thank you!
+# 複雑さは消せない。<br>しかし、制御することはできる。
+
+---
+layout: atmos-closing
+kicker: END OF SESSION
+---
+
+# Thank you.
+
+Let's talk about engineering.
+
+<span class="atmos-caption">WAKATO &nbsp; / &nbsp; @0ts_st</span>

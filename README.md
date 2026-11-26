@@ -25,3 +25,7 @@ npm run export:pptx
 初回 `npm install` 後に `package-lock.json` をコミットしてください。
 
 [Slidev documentation](https://sli.dev/)
+
+## Field Notes layouts
+
+`slides.md` contains a seven-slide sample deck. Custom layouts: `atmos-cover`, `atmos-content`, `atmos-section`, `atmos-code`, `atmos-quote`, `atmos-closing`. Add an optional `kicker` to the frontmatter. See [design notes](docs/design.md).
