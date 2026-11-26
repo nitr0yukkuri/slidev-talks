@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.slidev/
+.cache/
+*.local
+.env
+.env.*
+slides-export.*
+.DS_Store
