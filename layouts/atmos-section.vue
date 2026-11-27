@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import AtmosFrame from '../components/AtmosFrame.vue'
-defineProps<{ kicker?: string }>()
+defineProps<{ kicker?: string; tone?: 'light' | 'dark' }>()
 </script>
 
 <template>
-  <AtmosFrame role="section" :kicker="kicker"><slot /></AtmosFrame>
+  <AtmosFrame role="section" :kicker="kicker" :tone="tone"><slot /></AtmosFrame>
 </template>

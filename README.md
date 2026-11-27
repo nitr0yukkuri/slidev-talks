@@ -28,4 +28,4 @@ npm run export:pptx
 
 ## Field Notes layouts
 
-`slides.md` contains a seven-slide sample deck. Custom layouts: `atmos-cover`, `atmos-content`, `atmos-section`, `atmos-code`, `atmos-quote`, `atmos-closing`. Add an optional `kicker` to the frontmatter. See [design notes](docs/design.md).
+`slides.md` contains a seven-slide sample deck. Custom layouts: `atmos-cover`, `atmos-content`, `atmos-section`, `atmos-code`, `atmos-quote`, `atmos-closing`. The warm paper palette is the default for every layout. Add an optional `kicker` or `tone: dark` to the frontmatter. See [design notes](docs/design.md).

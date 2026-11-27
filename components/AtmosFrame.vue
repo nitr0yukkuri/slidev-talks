@@ -2,11 +2,12 @@
 withDefaults(defineProps<{
   role: 'cover' | 'content' | 'section' | 'quote' | 'code' | 'closing'
   kicker?: string
-}>(), { kicker: '' })
+  tone?: 'light' | 'dark'
+}>(), { kicker: '', tone: 'light' })
 </script>
 
 <template>
-  <div class="slidev-layout atmos" :data-role="role">
+  <div class="slidev-layout atmos" :data-role="role" :data-tone="tone">
     <div class="atmos-art" aria-hidden="true">
       <div class="atmos-glow" />
       <svg class="atmos-lines" viewBox="0 0 980 552" preserveAspectRatio="xMidYMid slice" fill="none">

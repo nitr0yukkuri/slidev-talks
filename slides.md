@@ -4,7 +4,7 @@ title: Field Notes
 author: WAKATO
 aspectRatio: 16/9
 canvasWidth: 980
-colorSchema: dark
+colorSchema: light
 transition: fade
 fonts:
   provider: none
